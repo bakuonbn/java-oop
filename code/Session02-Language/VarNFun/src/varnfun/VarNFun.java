@@ -1,5 +1,7 @@
 package varnfun;
 
+import java.util.Scanner;
+
 /**
  *
  * @author bakuonbn
@@ -13,7 +15,20 @@ package varnfun;
 public class VarNFun {
 
     public static void main(String[] args) {
-        printIntegerList();
+        
+        int n = getAPositiveInteger();
+        System.out.println("Your number: " + n);
+        
+        printIntegerList(n); //truyền tham trị, pass by value
+                             //value từ n của hàm main() sẽ được đưa qua ngõ/ngả/phễu máy xay
+                             //n main() đập ngang sang n của hàm
+                             
+                             //OOP: pass by reference - truyền tham chiếu
+        
+        //printIntegerList(400); //hard-code đầu vào, code cứng/cố định value/literal
+                                 //không mềm mại linh hoạt
+        
+        //printIntegerList();
         
         //playWithBooleans();
         
@@ -26,7 +41,33 @@ public class VarNFun {
         //playWithVariables();
     }
     
-    //in ra các siis tự nhiên từ 1 đến 100
+    public static int getAPositiveInteger() {
+        int n;
+        //nhập từ bàn phím, xài kĩ thuật OOP, chấm và bung lụa
+        Scanner banPhimCuaTui = new Scanner(System.in);
+
+        System.out.print("Input a positive integer: ");
+        n = banPhimCuaTui.nextInt();
+        
+        return n; //getAPositiveInteger() = n
+    }
+    
+    //tui mún in n số tự nhiên tính từ 1
+    //hiện tượng 1 class bất kì chứa nhiều hàm trùng tên nhưng khác phần tham số
+    //đầu vào, mà phải khác trên data type chứ không phải khác trên tên biến
+    //ĐƯỢC GỌI LÀ OVERLOAD/OVERLOADING - quá tải hàm
+    //giống như: 5 anh em trên 1 chiếc xe Wave
+    public static void printIntegerList(int n) {
+        //chỉ có thằng ngáo mới scanf(n) here!!! n đã có value khi dùng
+        //body of funct - nghiền, trộn, xử lí với đầu vào giả định sẽ đưa qua tên gọi
+        //giải quyết trên công thức
+        System.out.println("The list of " + n + " first integers");
+        for (int i = 1; i <= n; i++) {
+            System.out.print(i + " ");
+        }
+    }
+    
+    //in ra các số tự nhiên từ 1 đến 100
     public static void printIntegerList() {
         System.out.println("The list of 100 first integers");
         for (int i = 1; i <= 100; i++) {
