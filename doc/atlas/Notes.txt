@@ -1,0 +1,18 @@
+OBJECT VS. CLASS
+1. Object là: gom n value phức tạp
+	      là 1 vật thể, thứ gì đó, thing mà có những đặc điểm, hành vi
+	      là những thứ ta có thể đếm, sờ, mô tả, phân biệt được
+
+2. Class: sự phân nhóm, tên gọi cho 1 nhóm các đối tượng theo 1 tiêu chí nào đó
+	  tiêu chí: hát -> Nhóm CaSi -> class CaSi
+	  tiêu chí: đóng phim -> Nhóm DienVien -> class DienVien
+
+3. Có nhiều đối tượng xuất hiện, gom nhóm được rồi thành class
+   -> Làm sao lưu trữ, quản lí, xử lí các đối tượng này
+
+4. OOP: giống y chang kĩ thuật đúc tượng
+        muốn làm object nào, ta tạo Khuôn cho nhóm object đó -> Class
+	Khuôn đúc ra cúp -> Class Cup
+	Khuôn CaSi lưu được info các CaSi, Template Class Singer
+
+	Nhận diện/Từ object tạo ra Khuôn, sau này đúc trở lại các object
