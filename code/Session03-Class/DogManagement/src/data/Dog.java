@@ -53,6 +53,12 @@ public class Dog {
     public void setNewWeight(double newWeight) {
         weight = newWeight;
     }
+    
+    //vì mặc định info sẽ là giấu, khi mình giao tiếp mình mới bật nó ra
+    //chia sẻ info khi được hỏi, đó chính là method hàm hành động get()
+    public int getYob() {
+        return yob;
+    }
 }
 
 //code bên ngoài giống Khuôn bị thủng

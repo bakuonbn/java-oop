@@ -41,6 +41,12 @@ public class DogManagement {
         System.out.println("After overweight");
         chiHu.setNewWeight(5);
         chiHu.bark();
+        
+        int chYob = chiHu.getYob();
+        System.out.println("CH YOB: " + chYob);
+        
+        System.out.println("ND YOB: " + ngaoDa.getYob());
+
     }
     
     //ENCAPSULATION: TÍNH ĐÓNG GÓI CỦA THÔNG TIN VÀ HÀNH ĐỘNG
