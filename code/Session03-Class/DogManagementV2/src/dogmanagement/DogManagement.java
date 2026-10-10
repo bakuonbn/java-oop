@@ -9,49 +9,38 @@ import data.Dog;
 public class DogManagement {
 
     public static void main(String[] args) {
-        //lấy Khuôn Dog ra để bắt đầu đổ info
-        //y chang làm thẻ căn cước: lấy thông tin, in lên thẻ, đổ mực
-        //sau khi chờ khô, ta được object thuộc Nhóm vừa đúc
-        //đặt tên gọi tắt cho object để dễ dàng nói chuyện, tham chiếu đến
-        
+
         Dog chiHu = new Dog("CHI HU HU", 2021, 0.5);
-        //có object thì object sẽ biết làm gì đó, cờ hó biết sủa
         chiHu.bark();
-        
+
         Dog ngaoDa = new Dog("NGAO DA", 2020, 50.0);
         ngaoDa.bark();
         
-        //tại 1 thời điểm biến chỉ lưu được 1 value
-        //int yob = 2001;
-        //System.out.println("Yob: " + yob);
-        //yob = 2002;
-        //System.out.println("Yob again: " + yob);
+        //tui mún show toàn bộ info của tui, theo cách toString()
+        //object có nhiều hành động
+        System.out.println("Show all info by using toString() - a new behavior");
         
-        //chiHu sủa trở lại
-        //new có nghĩa xin vùng ram mới đủ chứa info của 1 bạn Dog sẽ được đúc, được đổ data
-        //tương tự với việc cái khuôn sau khi có bức tượng sẽ bỏ tượng ra và tiếp tục đổ nguyên liệu vào
-        //nên ngaoDa không đè lên data của chiHu
-        //việc ai người đấy làm
-        System.out.println("Chi Hu Hu barks again");
-        chiHu.bark();
-        
-        //bark(); ??? đứa nào sủa vậy??? không biết
-        //HÀNH ĐỘNG PHẢI GẮN VỚI OBJECT, THÔNG QUA CHẤM
-        
-        System.out.println("After overweight");
-        chiHu.setWeight(5);
-        chiHu.bark();
-        
-        int chYob = chiHu.getYob();
-        System.out.println("CH YOB: " + chYob);
-        
-        System.out.println("ND YOB: " + ngaoDa.getYob());
+        String chDetails = chiHu.toString();
+        System.out.println("CH details: " + chDetails);
+        System.out.println("ND details: " + ngaoDa.toString());
 
+        //hàm toString() rất đặc biệt, @Override
+        //mục tiêu là show ra all of info đã đổ vào hoặc chỉnh sửa
+        //y chang như mở Setting trong phone xem phần info điện thoại
+        
+        System.out.println("Play with toStirng()");
+        System.out.println(chiHu);  //chiHu là biến object, lưu toạ độ vùng new
+                                    //lí thuyết in ra địa chỉ, thực tế Java thì gọi toString() ngầm
+                                    //gọi thầm tên em
+        System.out.println(ngaoDa);   
+        
+        //NẾU KHUÔN KHÔNG CÓ HÀM TOSTRING() THÌ MẶC NHIÊN KHI NÓ ĐƯỢC TRIỆU GỌI (GỌI THẦM HAY GỌI TRỰC TIẾP)
+        //JVM SẼ TỰ ĐỘNG BĂM CÁI VÙNG RAM CỦA OBJECT THÀNH CON SỐ HEXA ĐẠI DIỆN CHO VALUE VÙNG RAM ĐÓ
+        //HASH NUMBER - NÉN TOÀN BỘ DATA THÀNH 1 CON SỐ, MD5, SHA-256,...
+        
+        //xem tuổi của 1 object, tương tác, hỏi đáp, giao tiếp với object qua dấu chấm
+        System.out.println("Get age");
+        System.out.println("ND age: " + ngaoDa.getAge());
     }
-    
-    //ENCAPSULATION: TÍNH ĐÓNG GÓI CỦA THÔNG TIN VÀ HÀNH ĐỘNG
-    //HÀM & BIẾN ĐI KÈM VỚI NHAU ĐẠI DIỆN, MÔ TẢ CHO 1 OBJECT, THỰC THỂ (SỐNG)
-    //ENCAPSULATION LÀ KHÁI NIỆM GÓI MỌI THỨ VÀO TRONG 1 CLASS, TỪ CLASS NHÂN BẢN RA OBJECT
-    //OBJECT NÀO HÀNH ĐỘNG TRONG KHUÔN KHỔ NHÀ OBJECT ĐÓ
     
 }
