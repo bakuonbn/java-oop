@@ -6,7 +6,7 @@ package data;
  */
 public class Student {
 
-    private String id;
+    private String id;  //instance variable
     private String name;
     private int yob;
     private double gpa;
