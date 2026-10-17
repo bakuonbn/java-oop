@@ -7,7 +7,103 @@ package basicarray;
 public class BasicArray {
 
     public static void main(String[] args) {
-        playWithStudentArray();
+        sortObjectArrayV2();
+    }
+    
+    public static void sortObjectArrayV2() {
+        Student arr[] = new Student[2];
+        arr[0] = new Student("SE123456", "AN NGUYEN", 2001, 9.0);
+        arr[1] = new Student("SE123457", "BINH LE", 2000, 5.0);
+        
+        System.out.println("Before sorting by gpa");
+        for (int i = 0; i < arr.length; i++) {
+            arr[i].showProfile();
+        }
+
+        //TUYỆT ĐỐI KHÔNG DÙNG TOÁN TỬ > < = CHO CÁC BIẾN OBJECT
+        //VÌ ĐI SO SÁNH TOẠ ĐỘ, ĐỊA CHỈ LÀ VÔ NGHĨA
+        //CHẤM BÊN TRONG ĐỊA CHỈ, CHẤM BÊN TRONG TOẠ ĐỘ
+        //VÀO TRONG OBJECT, VÀO TRONG VALUE PHỨC TẠP, LẤY VALUE KHÁC RA MÀ XEM, MÀ SO SÁNH
+        //sv1 so sánh với sv2 thì vớ vẩn, s1.điểm so sánh với s2.điểm còn có lí
+        //if(arr[0] > arr[1])
+        //tao ngồi ghế 0 mà điểm lại > hơn mày ngồi ghế 1 -> swap thôi
+        //swap điểm ăn đòn, swap trỏ
+        if(arr[0].getGpa() > arr[1].getGpa()) {
+            Student x;
+            x = arr[0];
+            arr[0] = arr[1];
+            arr[1] = x;
+        }
+        
+        //NEW BINH ĐANG ĐƯỢC 2 CON TRỎ CÙNG TRỎ, CHỨNG MINH
+        System.out.println("After sorting by gpa");
+        for (int i = 0; i < arr.length; i++) {
+            arr[i].showProfile();
+        }
+        //phần tử đầu của mảng thay vì trỏ vùng new 9, nay nó trỏ new 5
+        //SẮP XẾP MẢNG OBJECT, VÙNG NEW GIỮ NGUYÊN
+        //CHỈ ĐỔI CÁCH TRỎ [i] TRONG MẢNG
+        //[thằng đầu mảng] trỏ vùng new nhỏ 5.0
+        //[thằng kế mảng] trỏ vùng new to 9.0
+    }
+    
+    public static void sortObjectArray() {
+        Student arr[] = new Student[2];
+        arr[0] = new Student("SE123456", "AN NGUYEN", 2001, 9.0);
+        arr[1] = new Student("SE123457", "BINH LE", 2000, 5.0);
+        //[0] đừng trỏ điểm to, sẽ bị in trước, in trước thì không giảm dần
+        //[0] nên trỏ điểm nhỏ thì hay hơn
+        Student x;
+        x = arr[0]; //cho tớ tmp trỏ điểm 9 với
+        arr[0] = arr[1]; //int a = 5; int b = a //cho tao b xin value của mày
+                         //đầu bảng xin trỏ 5 thay vì 9
+        arr[1] = x; //chỗ ngồi kế đầu bảng xin trỏ lại 9 ngày xưa của anh [0]
+        
+        //NEW BINH ĐANG ĐƯỢC 2 CON TRỎ CÙNG TRỎ, CHỨNG MINH
+        System.out.println("After sorting by gpa");
+        for (int i = 0; i < arr.length; i++) {
+            arr[i].showProfile();
+        }
+        //phần tử đầu của mảng thay vì trỏ vùng new 9, nay nó trỏ new 5
+        //SẮP XẾP MẢNG OBJECT, VÙNG NEW GIỮ NGUYÊN
+        //CHỈ ĐỔI CÁCH TRỎ [i] TRONG MẢNG
+        //[thằng đầu mảng] trỏ vùng new nhỏ 5.0
+        //[thằng kế mảng] trỏ vùng new to 9.0
+    }
+    
+    public static void sortPrimitiveArray() {
+        int a = 9;
+        int b = 5;
+        //in a trước, b sau, giản dần value 9 5
+        //tui muốn tăng dần về value        5 9
+        System.out.println("a: " + a + " | b: " +b);
+        //backup a 9 trước khi a chơi với 5
+        
+        //chỉ đổi, sắp xếp khi bị lộn xộn thứ tự, khi a > b lộn xộn tăng dần
+        //NẾU ĐỨNG TRƯỚC MÀ LỚN HƠN VỀ VALUE, RÕ RÀNG PHẢI ĐỔI VALUE
+        //if (a > b) thì mới swap
+        if (a > b) {
+            int tmp = a; //temporary, temp, tmp, t
+        
+            a = b;      //tao cần value nhỏ, vì tao ngồi đầu tiên, nên mang nhỏ, mày nhỏ cho tao đi
+            b = tmp;    //vẫn còn 9 backup
+        }
+        System.out.println("After sorting a: "+ a + " | b: " +b);
+    }
+    
+    public static void playWithObjectArray() {
+        Student arr[] = new Student[20];
+        arr[0] = new Student("SE123456", "AN NGUYEN", 2001, 9.0);
+        arr[1] = new Student("SE123457", "BINH LE", 2000, 5.0);
+        System.out.println("The student list");
+        for (Student x : arr) {
+            //x = arr[0]; x = arr[1]; //2 chàng x và arr[0] cùng trỏ new AN
+                                      //2 chàng x và arr[1] cùng trỏ new BINH
+            x.showProfile();
+        }
+        //sắp xếp mảng tăng dần theo điểm tb
+        //lí thuyết, bạn [0] sẽ phải có điểm 5
+        //               [1] sẽ phải có điểm 9
     }
     
     public static void playWithStudentArray(){
